@@ -6,7 +6,21 @@
     <description>Recent content on Js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jan 2017 15:40:38 +0000</lastBuildDate><atom:link href="https://jeyvison.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Nov 2017 22:17:05 +0000</lastBuildDate><atom:link href="https://jeyvison.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crawling the Web With Scrapy</title>
+      <link>https://jeyvison.github.io/posts/crawling-the-web-with-scrapy/</link>
+      <pubDate>Sun, 12 Nov 2017 22:17:05 +0000</pubDate>
+      
+      <guid>https://jeyvison.github.io/posts/crawling-the-web-with-scrapy/</guid>
+      <description>Scrapy is a web crawler tool developed in Python with a high-level and simple syntax to get data from websites.
+Installation You can install it using pip:
+pip install scrapy or Anaconda
+conda install -c conda-forge scrapy or you can download the source.
+Developing a spider In this post, we’ll get the title and the link of the articles in the first page of the BBC Website.
+We will use the following script to crawl it:</description>
+    </item>
+    
     <item>
       <title>Gradle Basic Tutorial</title>
       <link>https://jeyvison.github.io/posts/gradle-basic-tutorial/</link>

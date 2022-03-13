@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Crawling the Web With Scrapy | Js</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Scrapy is a web crawler tool developed in Python with a high-level and simple syntax to get data from websites.
+Installation You can install it using pip:
+pip install scrapy or Anaconda
+conda install -c conda-forge scrapy or you can download the source.
+Developing a spider In this post, we’ll get the title and the link of the articles in the first page of the BBC Website.
+We will use the following script to crawl it:">
+    <meta name="generator" content="Hugo 0.94.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Crawling the Web With Scrapy" />
+<meta property="og:description" content="Scrapy is a web crawler tool developed in Python with a high-level and simple syntax to get data from websites.
+Installation You can install it using pip:
+pip install scrapy or Anaconda
+conda install -c conda-forge scrapy or you can download the source.
+Developing a spider In this post, we’ll get the title and the link of the articles in the first page of the BBC Website.
+We will use the following script to crawl it:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jeyvison.github.io/posts/crawling-the-web-with-scrapy/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-11-12T22:17:05+00:00" />
+<meta property="article:modified_time" content="2017-11-12T22:17:05+00:00" />
+
+<meta itemprop="name" content="Crawling the Web With Scrapy">
+<meta itemprop="description" content="Scrapy is a web crawler tool developed in Python with a high-level and simple syntax to get data from websites.
+Installation You can install it using pip:
+pip install scrapy or Anaconda
+conda install -c conda-forge scrapy or you can download the source.
+Developing a spider In this post, we’ll get the title and the link of the articles in the first page of the BBC Website.
+We will use the following script to crawl it:"><meta itemprop="datePublished" content="2017-11-12T22:17:05+00:00" />
+<meta itemprop="dateModified" content="2017-11-12T22:17:05+00:00" />
+<meta itemprop="wordCount" content="454">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Crawling the Web With Scrapy"/>
+<meta name="twitter:description" content="Scrapy is a web crawler tool developed in Python with a high-level and simple syntax to get data from websites.
+Installation You can install it using pip:
+pip install scrapy or Anaconda
+conda install -c conda-forge scrapy or you can download the source.
+Developing a spider In this post, we’ll get the title and the link of the articles in the first page of the BBC Website.
+We will use the following script to crawl it:"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Js
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Crawling the Web With Scrapy</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2017-11-12T22:17:05Z">November 12, 2017</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p><a href="https://scrapy.org/">Scrapy</a> is a web crawler tool developed in Python with a high-level and simple syntax to get data from websites.</p>
+<h2 id="installation">Installation</h2>
+<p>You can install it using pip:</p>
+<pre tabindex="0"><code>pip install scrapy
+</code></pre><p>or Anaconda</p>
+<pre tabindex="0"><code>conda install -c conda-forge scrapy
+</code></pre><p>or you can download the source.</p>
+<h2 id="developing-a-spider">Developing a spider</h2>
+<p>In this post, we’ll get the title and the link of the articles in the first page of the BBC Website.</p>
+<p>We will use the following script to crawl it:</p>
+<pre tabindex="0"><code>import scrapy
+class FirstPage(scrapy.Spider):
+ 	name = ‘firstpage’
+ 	start_urls = [‘http://www.bbc.com&#39;]
+def parse(self, response):
+ 	for article in response.css(‘a.block-link__overlay-link’):
+ 	yield{
+ 		‘text’: article.css(‘::text’).extract_first(),
+ 		‘link’: article.css(‘::attr(href)’).extract_first(),
+	}
+	
+</code></pre><p>First things first, let me explain you what this is script is doing:</p>
+<p><strong>1 — import scrapy</strong> :
+First , we need to import scrapy so we can use it in our code.
+This line guarantees that we can use the scrapy features in our script.</p>
+<p><strong>2 — class FirstPage(scrapy.Spider)</strong>:
+We have to create a classe where our logic will be executed. You may note the scrapy.Spider class we are Inheriting. This Spyder class will provide some attributes and methods we will need and is responsible to do the actual crawling.</p>
+<p><strong>3 — name = ‘firstpage</strong> :
+An unique name that identifies our Spider.</p>
+<p><strong>4 — start_urls = [‘http://www.bbc.com&rsquo;]</strong>:
+I mentioned above about some methods that we need and the Spyder class can provide for us. One of them is called start_requests.</p>
+<p>It simply gets the list of urls that we defined as start_urls (thats the required name for this attribute if we want the Spyder to get it for us), make a request to each url and redirect the response to the parse method.</p>
+<p>All this with one line of code ;).</p>
+<p><strong>5 — def parse(self, response)</strong>:
+This is where our logic goes.</p>
+<p>This method is the only one we must have in our script for our crawling.The response object holds the methods we will use to get the information we want from the web page</p>
+<p><strong>6 —for article in response.css(‘a.block-link__overlay-link’)</strong>:
+yield{
+‘text’: article.css(‘::text’).extract_first(),
+‘link’: article.css(‘::attr(href)’).extract_first(),
+}</p>
+<p>First we iterate over all the a html elements that has the css class <strong>block-link__overlay-link</strong>.</p>
+<p>For each element we find, we get two informations from it: the text of the article (the value of the html element) and the href attribute.</p>
+<p>Once these two informations are retrived these values are returned as an iterable list(‘yield keyword’).</p>
+<h2 id="running-the-script">Running the script</h2>
+<p>Now that we understand our script, let&rsquo;s see it running :)</p>
+<p>Create a file named <strong>first_page.py</strong> and add our script to it.</p>
+<p>Then run <strong>scrapy runspider first_page.py</strong> and check the output in console.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Scrapy is a powerful tool with lots of other cool features that you can check <a href="https://docs.scrapy.org/en/latest/">here</a>.Also, the above script is available on this <a href="https://github.com/jeyvison/scrapy-tutorial">link</a>.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jeyvison.github.io/" >
+    &copy;  Js 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div></div>
+  </div>
+</footer>
+
+  </body>
+</html>
