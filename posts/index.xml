@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Js</title>
-    <link>https://jeyvison.github.io/posts/</link>
-    <description>Recent content in Posts on Js</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 15 Jan 2017 15:40:38 +0000</lastBuildDate><atom:link href="https://jeyvison.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Gradle Basic Tutorial</title>
-      <link>https://jeyvison.github.io/posts/gradle-basic-tutorial/</link>
-      <pubDate>Sun, 15 Jan 2017 15:40:38 +0000</pubDate>
-      
-      <guid>https://jeyvison.github.io/posts/gradle-basic-tutorial/</guid>
-      <description>Gradle Basics Tutorial 1. Overview In this tutorial, we will cover some basics of Gradle, a polyglot build system.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Js</title><link>https://jeyvison.github.io/posts/</link><description>Recent content in Posts on Js</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 15 Jan 2017 15:40:38 +0000</lastBuildDate><atom:link href="https://jeyvison.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Gradle Basic Tutorial</title><link>https://jeyvison.github.io/posts/gradle-basic-tutorial/</link><pubDate>Sun, 15 Jan 2017 15:40:38 +0000</pubDate><guid>https://jeyvison.github.io/posts/gradle-basic-tutorial/</guid><description>Gradle Basics Tutorial 1. Overview In this tutorial, we will cover some basics of Gradle, a polyglot build system.
 2. Installation 2.1. Prerequisite In order to install Gradle, you must have a Java JDK or JRE installed on your machine. Gradle will use whatever java installation it finds in your path.
 2.2. Gradle You can follow this link to download one of the Gradle distributions.
-2.3. GRADLE_HOME Environment Variable For running Gradle from every path in the system, we must first configure the GRADLE_HOME environment variable.</description>
-    </item>
-    
-  </channel>
-</rss>
+2.3. GRADLE_HOME Environment Variable For running Gradle from every path in the system, we must first configure the GRADLE_HOME environment variable.</description></item></channel></rss>
