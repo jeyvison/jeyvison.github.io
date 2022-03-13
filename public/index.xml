@@ -6,7 +6,17 @@
     <description>Recent content on Js</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Nov 2017 22:17:05 +0000</lastBuildDate><atom:link href="https://jeyvison.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Dec 2017 22:42:45 +0000</lastBuildDate><atom:link href="https://jeyvison.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Server Sent Events With Jax-RS</title>
+      <link>https://jeyvison.github.io/posts/server-sent-events-with-jaxrs/</link>
+      <pubDate>Mon, 25 Dec 2017 22:42:45 +0000</pubDate>
+      
+      <guid>https://jeyvison.github.io/posts/server-sent-events-with-jaxrs/</guid>
+      <description>Java EE 8 has been around for some time and it brought many improvements to the Java ecosystem and it’s many APIs. In this post we will talk about something that was brought by the fresh JAX-RS 2.1 specification, the Server-Sent Events.
+Server-Sent Events (or SSE) are a one-way channel meant to send one to multiple messages from the server to the client(browser or java) in a single request. It’s built over HTPP and also has the capability to broadcast messages to event listeners registered on it.</description>
+    </item>
+    
     <item>
       <title>Crawling the Web With Scrapy</title>
       <link>https://jeyvison.github.io/posts/crawling-the-web-with-scrapy/</link>
