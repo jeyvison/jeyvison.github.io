@@ -1,7 +1,7 @@
 ---
 title: "Server Sent Events With Jax-RS"
 date: 2017-12-25T22:42:45Z
-draft: true
+draft: false
 ---
 
 Java EE 8 has been around for some time and it brought many improvements to the Java ecosystem and it’s many APIs. In this post we will talk about something that was brought by the fresh JAX-RS 2.1 specification, the Server-Sent Events.
@@ -107,5 +107,5 @@ The entry point to the client API is the SseEventSource class. It registers a ta
 
 ## Conclusion
 
-Server-side events are a useful way to push information from the server to another sources, without a request for that information.This post was heavily based on the JAX-RS API documentation so i suggest you take a look at it. The source code of this post is available in this github repo.
+Server-side events are a useful way to push information from the server to another sources, without a request for that information.This post was heavily based on the [JAX-RS API documentation](https://download.oracle.com/otn-pub/jcp/jaxrs-2_1-final-eval-spec/jaxrs-2_1-final-spec.pdf) so i suggest you take a look at it. The source code of this post is available in this [github repo](https://github.com/jeyvison/SSE).
 
