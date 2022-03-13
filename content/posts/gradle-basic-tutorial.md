@@ -1,7 +1,7 @@
 ---
 title: "Gradle Basic Tutorial"
 date: 2017-01-15T15:40:38Z
-draft: true
+draft: false
 ---
 
 # Gradle Basics Tutorial
