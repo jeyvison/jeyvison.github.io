@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Gradle Basic Tutorial | Js</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Gradle Basics Tutorial 1. Overview In this tutorial, we will cover some basics of Gradle, a polyglot build system.
+2. Installation 2.1. Prerequisite In order to install Gradle, you must have a Java JDK or JRE installed on your machine. Gradle will use whatever java installation it finds in your path.
+2.2. Gradle You can follow this link to download one of the Gradle distributions.
+2.3. GRADLE_HOME Environment Variable For running Gradle from every path in the system, we must first configure the GRADLE_HOME environment variable.">
+    <meta name="generator" content="Hugo 0.94.0" />
+    
+    
+    
+    
+      <meta name="robots" content="noindex, nofollow">
+    
+
+    
+<link rel="stylesheet" href="/ananke/css/main.min.css" >
+
+
+
+    
+    
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Gradle Basic Tutorial" />
+<meta property="og:description" content="Gradle Basics Tutorial 1. Overview In this tutorial, we will cover some basics of Gradle, a polyglot build system.
+2. Installation 2.1. Prerequisite In order to install Gradle, you must have a Java JDK or JRE installed on your machine. Gradle will use whatever java installation it finds in your path.
+2.2. Gradle You can follow this link to download one of the Gradle distributions.
+2.3. GRADLE_HOME Environment Variable For running Gradle from every path in the system, we must first configure the GRADLE_HOME environment variable." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://jeyvison.github.io/posts/gradle-basic-tutorial/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-01-15T15:40:38+00:00" />
+<meta property="article:modified_time" content="2017-01-15T15:40:38+00:00" />
+
+<meta itemprop="name" content="Gradle Basic Tutorial">
+<meta itemprop="description" content="Gradle Basics Tutorial 1. Overview In this tutorial, we will cover some basics of Gradle, a polyglot build system.
+2. Installation 2.1. Prerequisite In order to install Gradle, you must have a Java JDK or JRE installed on your machine. Gradle will use whatever java installation it finds in your path.
+2.2. Gradle You can follow this link to download one of the Gradle distributions.
+2.3. GRADLE_HOME Environment Variable For running Gradle from every path in the system, we must first configure the GRADLE_HOME environment variable."><meta itemprop="datePublished" content="2017-01-15T15:40:38+00:00" />
+<meta itemprop="dateModified" content="2017-01-15T15:40:38+00:00" />
+<meta itemprop="wordCount" content="1396">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Gradle Basic Tutorial"/>
+<meta name="twitter:description" content="Gradle Basics Tutorial 1. Overview In this tutorial, we will cover some basics of Gradle, a polyglot build system.
+2. Installation 2.1. Prerequisite In order to install Gradle, you must have a Java JDK or JRE installed on your machine. Gradle will use whatever java installation it finds in your path.
+2.2. Gradle You can follow this link to download one of the Gradle distributions.
+2.3. GRADLE_HOME Environment Variable For running Gradle from every path in the system, we must first configure the GRADLE_HOME environment variable."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        Js
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+<div class="ananke-socials">
+  
+</div>
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+
+
+
+
+
+
+  <div id="sharing" class="mt3 ananke-socials">
+    
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Gradle Basic Tutorial</h1>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2017-01-15T15:40:38Z">January 15, 2017</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><h1 id="gradle-basics-tutorial">Gradle Basics Tutorial</h1>
+<h2 id="1-overview">1. Overview</h2>
+<p>In this tutorial, we will cover some basics of Gradle, a polyglot build system.</p>
+<h2 id="2-installation">2. Installation</h2>
+<h3 id="21-prerequisite">2.1. Prerequisite</h3>
+<p>In order to install Gradle, you must have a Java JDK or JRE installed on your machine. Gradle will use whatever java installation it finds in your path.</p>
+<h3 id="22-gradle">2.2. Gradle</h3>
+<p>You can follow <a href="https://gradle.org/install">this link</a> to download one of the Gradle distributions.</p>
+<h3 id="23-gradle_home-environment-variable">2.3. GRADLE_HOME Environment Variable</h3>
+<p>For running Gradle from every path in the system, we must first configure the GRADLE_HOME environment variable.</p>
+<p>Add the variable GRADLE_HOME to your system and point it to the unpacked files downloaded from Gradle website.</p>
+<p>Then, add GRADLE_HOME/bin to your PATH environment variable.</p>
+<h3 id="24-testing-the-installation">2.4. Testing the Installation</h3>
+<p>If GRADLE_HOME was successfully set to the path, you can run</p>
+<pre tabindex="0"><code>gradle -v
+</code></pre><p>in your command line tool to test the installation.</p>
+<p>The output shows the Gradle version and some environment info like JVM version, OS version, etc.</p>
+<h2 id="3-project-and-tasks">3. Project and Tasks</h2>
+<p>You may have one or more projects built with Gradle. A project is composed of tasks((i.e Compile the source code, run the unit tests) that occur only once in the build execution.</p>
+<p>Each project using Gradle defines a <strong>build.gradle</strong> file. The gradle command looks for a build.gradle in your current path. In this file, you can customize the tasks you want to run, define your dependencies and much more.</p>
+<h3 id="31-build-script-file">3.1. Build Script File</h3>
+<p>Let’s create a build.gradle file and define a task in it:</p>
+<p><strong>build.gradle</strong></p>
+<pre tabindex="0"><code>task hello { 
+    println “hello, Gradle!” 
+}
+</code></pre><p>Let’s decompose this task:</p>
+<ul>
+<li><strong>task Hello</strong> :You use the reserved word task to define a new unit of work or to modify a task that already exists(like compile, test,etc.). Every task must be named so it can be called by Gradle</li>
+<li><strong>println “Hello, Baeldung”</strong>: The code block</li>
+</ul>
+<p>To see it running, run</p>
+<pre tabindex="0"><code>gradle hello
+</code></pre><p>in your <strong>build.gradle</strong> directory and check the output.</p>
+<h3 id="32-build-script-code">3.2. Build Script Code</h3>
+<p>You can use Groovy(and Kotlin) to customize the build script. For example:</p>
+<pre tabindex="0"><code>task hello { 
+    def awesomeness = ‘awesome’
+    println “this tutorial is ${awesomeness}” 
+}
+</code></pre><p>If you want to check the tasks that Gradle offers you, run</p>
+<pre tabindex="0"><code>gradle tasks
+</code></pre><h2 id="4-gradle-build-and-dependency-management">4. Gradle Build and Dependency Management</h2>
+<p>In order to build a project, a set of configurations and tasks are needed so Gradle knows where to find the source code to compile, where are the tests, how to add the dependencies in the project and so on.</p>
+<p>Fortunately, there’s a way to build our project without so much effort. We can use Gradle plugins.</p>
+<p>In this tutorial, we will use the Java Plugin.</p>
+<h3 id="41-java-plugin">4.1. Java Plugin</h3>
+<p>The Java plugin has predefined configurations and tasks that help us to build a java project very easily. It uses Maven-like source sets to find the source code.</p>
+<p>A Source-Set is a configuration that tells the plugin where to find the source code for compiling or testing.</p>
+<p>For default, the Java source code is found under src/main/java.</p>
+<p>So, to start let’s apply the java plugin to our build.gradle file:</p>
+<pre tabindex="0"><code>apply plugin: ‘java’ task hello { 
+    def awesomeness = ‘awesome’ 
+    println “this Baeldung’s tutorial is ${awesomeness}” 
+}
+</code></pre><p>This unique line added did a lot to our project. Now, we can use all the tasks that the plugin offers us to build our java project.</p>
+<p>To check the new tasks we can use, run</p>
+<pre tabindex="0"><code>gradle tasks
+</code></pre><p>in your build.gradle file directory.</p>
+<h3 id="42-build-the-project">4.2. Build the Project</h3>
+<p>Let’s create a Main.java file under src/main /java and compile it with our new tasks:</p>
+<p><strong>src/main/java/Main.java</strong></p>
+<pre tabindex="0"><code>public class Main{ 
+    public static void main(String[] args){     
+        System.out.println(“Hello, Medium”); 
+    } 
+}
+</code></pre><p>In our build.gradle directory we can now run</p>
+<pre tabindex="0"><code>gradle build
+</code></pre><p>and check the tasks being executed.You can find the result of the build in the ./build folder.</p>
+<h3 id="43-dependencies-management">4.3. Dependencies Management</h3>
+<p>Gradle offers you some ways to define your dependencies. Before to define any of them, we first need to tell Gradle from where it will get it.</p>
+<p>For this, we can use the repositories configuration. There are some repositories we can use, but for this tutorial, we will use the maven central repository:</p>
+<pre tabindex="0"><code>apply plugin: ‘java’ repositories{ 
+    mavenCentral() 
+} task hello { 
+    def awesomeness = ‘awesome’ 
+    println “this Baeldung’s tutorial is ${awesomeness}” 
+}
+</code></pre><p>Now we told Gradle that any external dependency we need, it must look at this repository for us. Let’s say now our project needs an external dependency, the Spring framework. We can declare it in a dependencies block like this:</p>
+<pre tabindex="0"><code>apply plugin: ‘java’ repositories{ 
+    mavenCentral() 
+} dependencies{ 
+    compile ‘org.springframework:spring-context:4.3.5.RELEASE’ 
+} task hello { 
+    def awesomeness = ‘awesome’ 
+    println “this Baeldung’s tutorial is ${awesomeness}” 
+}
+</code></pre><p>So, what does it do?</p>
+<ul>
+<li>The block dependencies is where we define our dependencies.</li>
+<li>The compile (configuration added by the java plugin) word tells Gradle that this dependency is needed to compile our project’s source and therefore to run it too.</li>
+<li>Our dependency in the (<strong>GAV</strong>) format <strong>group:artifactId:version</strong>. This is a format standardized by Maven.You can check it here.</li>
+</ul>
+<p>There is another format to use when declaring dependencies.If you prefer, you can declare it in the following way:</p>
+<pre tabindex="0"><code>dependencies{ 
+    compile group:’org.springframework’ , name:’spring-context’, version:’4.3.5.RELEASE’ 
+}
+</code></pre><h2 id="5-publishing-artifacts">5. Publishing Artifacts</h2>
+<h3 id="51-the-artifact-name">5.1. The Artifact Name</h3>
+<p>We can use the dependency configurations to publish files to repositories. These files are called artifacts.</p>
+<p>Before publishing our artifact to some repository we need first define some informations based on the GAV format we saw above.</p>
+<p>In <strong>build.gradle</strong> we can define these informations in the following way:</p>
+<pre tabindex="0"><code>group=’com.baeldung.tutorial’
+version=’1.0.0&#39; apply plugin: ‘java’ repositories{ 
+    mavenCentral()
+} dependencies{ 
+    compile ‘org.springframework:spring-context:4.3.5.RELEASE’ 
+} task hello { 
+    def awesomeness = ‘awesome’ 
+    println “this Baeldung’s tutorial is ${awesomeness}” 
+}
+</code></pre><p>The artifactId information is the name of our project(i.e the folder containing the build.gradle file). Run</p>
+<pre tabindex="0"><code>gradle build
+</code></pre><p>and check the version of our artifact in the ./build dir.</p>
+<h3 id="56-publishing">5.6. Publishing</h3>
+<p>There are two things we need to publish our artifact. First, we will use the Maven plugin. Second, we need to configure where is our repository. Our build.gradle file would look like this:</p>
+<pre tabindex="0"><code>group=’com.baeldung.tutorial’ 
+version=’1.0.0&#39; apply plugin: ‘java’ 
+apply plugin: ‘maven’ repositories{ 
+    mavenCentral() 
+} dependencies{ 
+    compile ‘org.springframework:spring-context:4.3.5.RELEASE’ 
+} task hello { 
+    def awesomeness = ‘awesome’ 
+    println “this Baeldung’s tutorial is ${awesomeness}” 
+} 
+uploadArchives { 
+    repositories { 
+        mavenDeployer { 
+            repository(url: ‘http://yourmavenrepo/repository&#39;) {   
+                authentication(userName: ‘user’, password: ‘password’); } 
+        } 
+    } 
+}
+</code></pre><p>The maven plugin adds the configuration we need to upload our artifact to a maven repository. The UploadArchives configuration is where we define the destination of our bundle with some other informations, like authentication.</p>
+<p>If you have a maven repository configured you can run</p>
+<pre tabindex="0"><code>gradle upload
+</code></pre><p>and your artifact will be uploaded.</p>
+<h2 id="6-more-on-gradle">6. More on Gradle</h2>
+<h3 id="61-the-gradle-wrapper">6.1. The Gradle Wrapper</h3>
+<p>Gradle has a wrapper, so you don’t have to install it on every machine you are working. It contains the Gradle version you define, so you won’t have version issues when building your project.</p>
+<p>To create a wrapper for our project we can run</p>
+<pre tabindex="0"><code>gradle wrapper --gradle-version 3.2.1
+</code></pre><p>where “3.2.1” is the version we wanna use.</p>
+<p>This command creates the following files and directories:</p>
+<ul>
+<li><strong>gradlew</strong>: A shell script file that executes the Gradle tasks</li>
+<li><strong>gradlew.bat</strong>: A Windows batch script that executes the Gradle tasks</li>
+<li><strong>./gradle</strong>: A directory containing a Gradle wrapper jar and a properties file indicating the version we are using and other configurations</li>
+</ul>
+<p>To execute the wrapper you just need to run the gradlew.bat file if you are using windows or the gradlew file if you are using Linux/OS X.</p>
+<h3 id="62-gradle-properties">6.2. Gradle Properties</h3>
+<p>We may define some configurations external to the build.gradle file. We need to create a gradle.properties in our project at the same level as our build script. Let’s create this file and define some properties in it:</p>
+<p><strong>gradle.properties</strong></p>
+<pre tabindex="0"><code>awesomeness=awesome
+group=com.baeldung.tutorial 
+version=1.0.0
+</code></pre><p>With these properties defined, we can remove those variables from our build script.Our build.gradle should look like this now:</p>
+<pre tabindex="0"><code>apply plugin: ‘java’ 
+apply plugin: ‘maven’ repositories{ 
+    mavenCentral() 
+} dependencies{ 
+    compile ‘org.springframework:spring-context:4.3.5.RELEASE’ 
+} task hello { 
+    println “this Baeldung’s tutorial is ${awesomeness}” 
+} uploadArchives { 
+    repositories { 
+        mavenDeployer { 
+            repository(url: ‘http://yourmavenrepo/repository&#39;) {
+                authentication(userName: ‘user’, password: ‘password’); } 
+        } 
+    } 
+}
+</code></pre><p>To check if the properties are correctly set, we may run</p>
+<pre tabindex="0"><code>gradle hello
+</code></pre><p>and see if the property awesomeness is correctly substituted.</p>
+<h2 id="7-conclusion">7. Conclusion</h2>
+<p>In this tutorial we have covered some Gradle basics and understood how to build a java project. You can check <a href="https://docs.gradle.org/3.2.1/userguide/userguide.html">this link</a> to go through the user guide. If you want it, you can check the repo of this code in <a href="https://bitbucket.org/jeyvison_andrade/gradle_tutorial/src/master/">this link</a>.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://jeyvison.github.io/" >
+    &copy;  Js 2022 
+  </a>
+    <div>
+<div class="ananke-socials">
+  
+</div></div>
+  </div>
+</footer>
+
+  </body>
+</html>
