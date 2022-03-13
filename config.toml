@@ -1,4 +1,4 @@
-baseURL = 'jeyvison.github.io'
+baseURL = 'https://jeyvison.github.io'
 languageCode = 'en-us'
 title = 'Js'
 theme = "ananke"
