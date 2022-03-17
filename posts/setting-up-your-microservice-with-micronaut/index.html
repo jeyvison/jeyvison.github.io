@@ -1,0 +1,76 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Setting Up Your Microservice With Micronaut | Js</title><meta name=viewport content="width=device-width,minimum-scale=1"><meta name=description content="Micronaut is a JVM-based framework designed to help developers build building modular, easily testable microservice applications.
+It has several tools that are needed to build a microservice application like:
+ Dependency Injection and Inversion of Control (IoC) Sensible Defaults and Auto-Configuration Configuration and Configuration Sharing Service Discovery HTTP Routing HTTP Client with client-side load-balancing  At the same time, it provides:
+ Fast startup time Reduced memory footprint Minimal use of reflection Minimal use of proxies Easy unit testing  It was designed to avoid some downsides of other frameworks used to build microservices."><meta name=generator content="Hugo 0.94.2"><meta name=robots content="noindex, nofollow"><link rel=stylesheet href=/ananke/css/main.min.css><meta property="og:title" content="Setting Up Your Microservice With Micronaut"><meta property="og:description" content="Micronaut is a JVM-based framework designed to help developers build building modular, easily testable microservice applications.
+It has several tools that are needed to build a microservice application like:
+ Dependency Injection and Inversion of Control (IoC) Sensible Defaults and Auto-Configuration Configuration and Configuration Sharing Service Discovery HTTP Routing HTTP Client with client-side load-balancing  At the same time, it provides:
+ Fast startup time Reduced memory footprint Minimal use of reflection Minimal use of proxies Easy unit testing  It was designed to avoid some downsides of other frameworks used to build microservices."><meta property="og:type" content="article"><meta property="og:url" content="https://jeyvison.github.io/posts/setting-up-your-microservice-with-micronaut/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-07-01T19:34:39+00:00"><meta property="article:modified_time" content="2018-07-01T19:34:39+00:00"><meta itemprop=name content="Setting Up Your Microservice With Micronaut"><meta itemprop=description content="Micronaut is a JVM-based framework designed to help developers build building modular, easily testable microservice applications.
+It has several tools that are needed to build a microservice application like:
+ Dependency Injection and Inversion of Control (IoC) Sensible Defaults and Auto-Configuration Configuration and Configuration Sharing Service Discovery HTTP Routing HTTP Client with client-side load-balancing  At the same time, it provides:
+ Fast startup time Reduced memory footprint Minimal use of reflection Minimal use of proxies Easy unit testing  It was designed to avoid some downsides of other frameworks used to build microservices."><meta itemprop=datePublished content="2018-07-01T19:34:39+00:00"><meta itemprop=dateModified content="2018-07-01T19:34:39+00:00"><meta itemprop=wordCount content="864"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Setting Up Your Microservice With Micronaut"><meta name=twitter:description content="Micronaut is a JVM-based framework designed to help developers build building modular, easily testable microservice applications.
+It has several tools that are needed to build a microservice application like:
+ Dependency Injection and Inversion of Control (IoC) Sensible Defaults and Auto-Configuration Configuration and Configuration Sharing Service Discovery HTTP Routing HTTP Client with client-side load-balancing  At the same time, it provides:
+ Fast startup time Reduced memory footprint Minimal use of reflection Minimal use of proxies Easy unit testing  It was designed to avoid some downsides of other frameworks used to build microservices."></head><body class="ma0 avenir bg-near-white"><header><div class=bg-black><nav class="pv3 ph3 ph4-ns" role=navigation><div class="flex-l justify-between items-center center"><a href=/ class="f3 fw2 hover-white no-underline white-90 dib">Js</a><div class="flex-l items-center"><div class=ananke-socials></div></div></div></nav></div></header><main class=pb7 role=main><article class="flex-l flex-wrap justify-between mw8 center ph3"><header class="mt4 w-100"><aside class="instapaper_ignoref b helvetica tracked">POSTS</aside><div id=sharing class="mt3 ananke-socials"></div><h1 class="f1 athelas mt3 mb1">Setting Up Your Microservice With Micronaut</h1><time class="f6 mv4 dib tracked" datetime=2018-07-01T19:34:39Z>July 1, 2018</time></header><div class="nested-copy-line-height lh-copy serif f4 nested-links mid-gray pr4-l w-two-thirds-l"><p>Micronaut is a JVM-based framework designed to help developers build building modular, easily testable microservice applications.</p><p>It has several tools that are needed to build a microservice application like:</p><ul><li>Dependency Injection and Inversion of Control (IoC)</li><li>Sensible Defaults and Auto-Configuration</li><li>Configuration and Configuration Sharing</li><li>Service Discovery</li><li>HTTP Routing</li><li>HTTP Client with client-side load-balancing</li></ul><p>At the same time, it provides:</p><ul><li>Fast startup time</li><li>Reduced memory footprint</li><li>Minimal use of reflection</li><li>Minimal use of proxies</li><li>Easy unit testing</li></ul><p>It was designed to avoid some downsides of other frameworks used to build microservices. In this article, we’re gonna build a hello world app with it.
+Installing the CLI tool</p><p>The framework provides us a CLI tool to help bootstraping applications, profiles and other things.We can do a couple of things to get it installed and running:
+Using SDKMAN:</p><p>As easy as :</p><pre tabindex=0><code> sdk install micronaut
+</code></pre><p>If the package manager of you OS doesn&rsquo;t have it yet, you can install it manually.</p><h2 id=installing-manually>Installing Manually</h2><p>clone this repo:</p><pre tabindex=0><code>git clone git@github.com:micronaut-projects/micronaut-core.git
+cd micronaut-core/
+./gradlew publishToMavenLocal
+</code></pre><p>It will publish the CLI to your local cache. And then you will have to update your bashrc file(or zshrc, or *rc…) to include microunaut to the path, like this:</p><pre tabindex=0><code>export MICRONAUT_HOME=~/path/to/micronaut-core
+export PATH=&#34;$PATH:$MICRONAUT_HOME/cli/build/bin&#34;
+</code></pre><p>Don&rsquo;t forget to</p><pre tabindex=0><code>source ~/.bash_profile
+</code></pre><p>your file so it will be reloaded in your terminal ;)</p><p>Great! Now that we have Micronaut installed let&rsquo;s run it:</p><pre tabindex=0><code>&gt;$ mnUsage (optionals marked with *):’
+mn [target] [arguments]*’| Examples:
+$ mn create-app my-app| Language support for Groovy and/or Kotlin can be enabled with the corresponding feature::
+$ mn create-app my-groovy-app -features=groovy
+$ mn create-app my-kotlin-app -features=kotlin| Available Commands (type mn help ‘command-name’ for more info):
+| Command Name                         Command Description
+ — — — — — — — — — — — — — — — — — — — - - - - - - - - - - - - - - -
+create-app                 Creates an application
+create-federation          Creates a federation of services
+create-function            Creates a serverless function application
+create-profile             Creates a profile
+help                       Prints help information for a command
+list-profiles              Lists the available profiles
+profile-info               Display information about a given profile| Detailed usage with help [command]
+</code></pre><p>Wow! The first thing to notice is that Micronaut supports creating projects for Groovy and Kotlin.
+But for this post we will stick with Java.</p><p>After installing the CLI tool and verify that everything is working fine, we are going to create our app.</p><h2 id=creating-the-application>Creating the Application</h2><p>It’s time to create our app!</p><p>let’s run :</p><pre tabindex=0><code>mn create-app hello-micronaut.
+</code></pre><p>This command creates a gradle-based java project with microunaut dependencies and an Application class with a main method.
+This main method will be responsible to start our application, something like spring-boot does.</p><p>The generated project looks like this:</p><pre tabindex=0><code>hello-micronaut
+├── build.gradle
+├── gradle
+│   └── wrapper
+│       ├── gradle-wrapper.jar
+│       └── gradle-wrapper.properties
+├── gradlew
+├── gradlew.bat
+├── micronaut-cli.yml
+└── src
+    ├── main
+    │   ├── java
+    │   │   └── hello
+    │   │       └── micronaut
+    │   │           └── Application.java
+    │   └── resources
+    │       ├── application.yml
+    │       └── logback.xml
+    └── test
+        └── java
+</code></pre><p>We have:</p><ul><li>A build.gradle file with some plugins and the dependencies we will need.</li><li>An Application class that will start our app</li><li>An application.yml file where we can configure the port where our service will be running, for example</li><li>A logback.xml file with default log configuration.</li><li>A microunaut-cli.yml file for code-generation purposes.</li></ul><p>Well, why should we wait more? Let’s run our app and see what happens!
+Running and configuring</p><p>When we run</p><pre tabindex=0><code>./gradlew run
+</code></pre><p>the service is started at a random port in localhost. If you access it via browser you will see something like this:</p><pre tabindex=0><code>{&#34;_links&#34;:{&#34;self&#34;:{&#34;href&#34;:&#34;/&#34;,&#34;templated&#34;:false}},&#34;message&#34;:&#34;Page Not Found&#34;}
+</code></pre><p>It means our service is up but there is no index page.</p><p>What if we wanted to set port 8080 to our app? We can configure it using application.yml. This file was already created and looks like this:</p><pre tabindex=0><code>micronaut:
+    application:
+        name: hello-micronaut
+</code></pre><p>We can set</p><pre tabindex=0><code>micronaut:
+    application:
+        name: hello-micronaut
+    server:
+        port: 8080
+</code></pre><p>and restart it. Now you should be able to access our application at localhost:8080.</p><p>Next, we will create a controller to handle the requests and show our message :)</p><h2 id=creating-a-controller>Creating a controller</h2><p>Now that we learned how to run and configure the port of our service , let’s create a controller that will respond to GET requests in “/hello”.
+Let’s create the following class:</p><pre tabindex=0><code>import io.micronaut.http.annotation.*;@Controller(“/hello”) 
+public class HelloController {   @Get(“/”) 
+   public String index() {
+       return “Hello Micronaut”;   }
+}
+</code></pre><p>If you ever worked with Spring Framework, these annotations are not that strange to you but let’s check what they do:</p><ul><li>With @Controller, we are saying that this class will handle all the requests addressed to “/hello” .</li><li>@Get annotation gives to the method index() the responsability to handle GET requests that comes to “/hello”.</li></ul><p>Restart the server and navigate to localhost:8080/hello in your browser. You should see the string “Hello Micronaut” on it.</p><p>To conclude, we saw in this post how easy it is to create a service with Micronaut. It has AutoConfiguration, Client native features(Service discovery, load-balancing, etc) and much more!</p><p>Take a look at <a href=https://docs.micronaut.io/latest/guide/index.html>their docs</a>, and if you wanna see the code that was created here, you can clone <a href=https://github.com/jeyvison/hello-micronaut>this repo</a>.</p><ul class=pa0></ul><div class="mt6 instapaper_ignoref"></div></div><aside class="w-30-l mt6-l"></aside></article></main><footer class="bg-black bottom-0 w-100 pa3" role=contentinfo><div class="flex justify-between"><a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://jeyvison.github.io/>&copy; Js 2022</a><div><div class=ananke-socials></div></div></div></footer></body></html>
